@@ -61,8 +61,8 @@ class Email {
 }
 
 class SingleEmailMessage extends Email {
+  
   public function __construct() {}
-
 
   public function setBccAddresses($addresses) {
     $this->bccAddresses = $addresses;

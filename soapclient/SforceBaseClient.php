@@ -60,9 +60,9 @@ class SforceBaseClient {
 	protected $localeOptions;
 	protected $packageVersionHeader;
 	
-  protected function getSoapClient($wsdl, $options) {
+	protected function getSoapClient($wsdl, $options) {
 		return new SoapClient($wsdl, $options);      
-  }
+	}
 	
 	public function getNamespace() {
 		return $this->namespace;
@@ -98,11 +98,11 @@ class SforceBaseClient {
 	 * Connect method to www.salesforce.com
 	 *
 	 * @param string $wsdl   Salesforce.com Partner WSDL
-   * @param object $proxy  (optional) proxy settings with properties host, port,
-   *                       login and password
-   * @param array $soap_options (optional) Additional options to send to the
-   *                       SoapClient constructor. @see
-   *                       http://php.net/manual/en/soapclient.soapclient.php
+	 * @param object $proxy  (optional) proxy settings with properties host, port,
+	 *                       login and password
+	 * @param array $soap_options (optional) Additional options to send to the
+	 *                       SoapClient constructor. @see
+	 *                       http://php.net/manual/en/soapclient.soapclient.php
 	 */
 	public function createConnection($wsdl, $proxy=null, $soap_options=array()) {
 		$phpversion = substr(phpversion(), 0, strpos(phpversion(), '-'));
@@ -130,7 +130,7 @@ class SforceBaseClient {
             $soapClientArray = array_merge($soapClientArray, $proxySettings);
 		}
 
-  	$this->sforce = $this->getSoapClient($wsdl, $soapClientArray);
+  		$this->sforce = $this->getSoapClient($wsdl, $soapClientArray);
 
 		return $this->sforce;
 	}
@@ -163,8 +163,8 @@ class SforceBaseClient {
 			$this->sforce->__setSoapHeaders(array($this->loginScopeHeader));
 		}
 		$result = $this->sforce->login(array (
-		 'username' => $username,
-		 'password' => $password
+		 	'username' => $username,
+		 	'password' => $password
 		));
 		$result = $result->result;
 		$this->_setLoginHeader($result);
